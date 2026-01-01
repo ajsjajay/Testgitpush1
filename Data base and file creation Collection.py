@@ -24,7 +24,20 @@ data = {
     "surname": "Patel",
     "email": "patel.dummy@email.com"
 }
+data = {
+    "surname": "Pal",
+    "email": "pal.dummy@email.com"
+}
 
+data = {
+    "surname": "Pal1",
+    "email": "pal1.dummy@email.com"
+}
+
+data = {
+    "surname": "Pal2",
+    "email": "pal2.dummy@email.com"
+}
 result = collection.insert_one(data)
 
 print("Inserted document ID:", result.inserted_id)
