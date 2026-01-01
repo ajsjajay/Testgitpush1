@@ -1,7 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-uri = "mongodb+srv://username:<Password>@Clustername.53vs8nv.mongodb.net/?appName=Ineuronprojects"
+uri = "Your URL MONGO DB to be pasetd"
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
