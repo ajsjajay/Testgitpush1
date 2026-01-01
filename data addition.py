@@ -12,7 +12,7 @@ from pymongo import MongoClient
 # - MongoClient is the bridge between Python and MongoDB.
 
 
-connection_url = "mongodb+srv://ajaysj141:@ineuronprojects.53vs8nv.mongodb.net/?appName=Ineuronprojects"
+connection_url = "Your URL MONGO DB to be pasetd"
 # WHY this line is written:
 # - MongoDB needs an address so Python knows WHERE to connect.
 # - This URL points to your remote MongoDB (Atlas / Cloud).
