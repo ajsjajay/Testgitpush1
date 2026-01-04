@@ -12,7 +12,7 @@ from pymongo import MongoClient
 # - MongoClient is the bridge between Python and MongoDB.
 
 
-connection_url = "Your URL MONGO DB to be pasetd"
+connection_url = "Your URL MONGO DB to be pasetd "
 # WHY this line is written:
 # - MongoDB needs an address so Python knows WHERE to connect.
 # - This URL points to your remote MongoDB (Atlas / Cloud).
@@ -87,3 +87,76 @@ for record in collection.find():
 # - find() fetches all stored records.
 # - Seeing output proves data is really inside MongoDB.
 # ---------------------------------------------------------------------------------------------
+collection = db["orders"]
+    # WHAT: collection name reference
+    # WHY: tells MongoDB which collection inside the database
+    # IF NOT: MongoDB does not know which table-like place to use
+
+    # This is COMPLEX JSON data (nested + list)
+    # It is still ONLY in Python memory at this point
+    complex_order_data = {
+        "order_id": "ORD1001",
+        "customer": {
+            "first_name": "Ajay",
+            "last_name": "Kumar",
+            "email": "ajay.kumar@email.com"
+        },
+        "items": [
+            {
+                "product_name": "Laptop",
+                "price": 900,
+                "quantity": 1
+            },
+            {
+                "product_name": "Mouse",
+                "price": 20,
+                "quantity": 2
+            }
+        ],
+        "shipping_address": {
+            "city": "Dublin",
+            "country": "Ireland",
+            "pin": "D01XYZ"
+        },
+        "order_status": "confirmed",
+        "payment": {
+            "method": "card",
+            "paid": True
+        }
+    }
+    # WHAT: complex JSON (dictionary + list inside)
+    # WHY: MongoDB stores data exactly like this (nested allowed)
+    # IF NOT: nothing meaningful to store
+
+    # 🔴 MOST IMPORTANT LINE 🔴
+    insert_result = collection.insert_one(complex_order_data)
+    # WHAT: command to send data
+    # WHY: this line actually sends data to MongoDB
+    # IF NOT: database + collection + data will NOT be created
+
+    print("Inserted document ID:", insert_result.inserted_id)
+    # WHAT: confirmation output
+    # WHY: shows MongoDB accepted the data
+    # IF NOT: you will not know if insert worked
+
+    print("\nReading data from MongoDB:")
+    for doc in collection.find():
+        print(doc)
+    # WHAT: read command
+    # WHY: confirms data is really inside MongoDB
+    # IF NOT: no proof of stored data
+
+except Exception as e:
+    print("Connection or insert failed.")
+    print(e)
+    # WHAT: error handler
+    # WHY: tells you if URL / login / network is wrong
+    # IF NOT: program crashes without clear message
+
+# ---------------- END OF FILE ----------------
+
+
+# MEMORY (only read these 3 lines):
+# Purpose: store complex JSON data in MongoDB
+# Key line: collection.insert_one(complex_order_data)
+# Confirm: data prints using collection.find()

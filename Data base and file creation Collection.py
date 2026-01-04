@@ -21,8 +21,8 @@ collection = db["user_details"]
 
 # 5. Insert dummy document
 data = {
-    "surname": "Patel",
-    "email": "patel.dummy@email.com"
+    "surname": "Pl",
+    "email": "pl.dummy@email.com"
 }
 data = {
     "surname": "Pal",
