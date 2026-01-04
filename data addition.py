@@ -41,16 +41,16 @@ collection = db["customers"]
 
 customers_data = [
     {
-        "surname": "Reddy",
-        "email": "reddy.customer@email.com"
+        "surname": "Ready",
+        "email": "ready.customer@email.com"
     },
     {
-        "surname": "Patel",
-        "email": "patel.customer@email.com"
+        "surname": "Pal",
+        "email": "paal.customer@email.com"
     },
     {
-        "surname": "Sharma",
-        "email": "sharma.customer@email.com"
+        "surname": "Shaz",
+        "email": "shaz.customer@email.com"
     }
 ]
 # WHY this is written:
@@ -97,9 +97,9 @@ collection = db["orders"]
     complex_order_data = {
         "order_id": "ORD1001",
         "customer": {
-            "first_name": "Ajay",
-            "last_name": "Kumar",
-            "email": "ajay.kumar@email.com"
+            "first_name": "JAZ",
+            "last_name": "mig",
+            "email": "JAZ.migr@email.com"
         },
         "items": [
             {
